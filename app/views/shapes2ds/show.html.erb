@@ -1,2 +1,35 @@
-<h1>Shapes2ds#show</h1>
-<p>Find me in app/views/shapes2ds/show.html.erb</p>
+<nav class="navbar navbar-light bg-light">
+  <%= link_to "Home",  root_path, class: "navbar-brand"%>
+</nav>
+
+<div class = "d-flex flex-column justify-content-center ">
+  <div class = "containerr p-2" style= "box-shadow: 0 1px 1px -1px gray">
+      <h3><%=@shapes2d.name%></h3>
+      <p><%=@shapes2d.formulas%></p>
+      <p>sides: <%= @shapes2d.sides %></p>
+      <p>vertices: <%= @shapes2d.vertices %></p>
+      <p>edges: <%= @shapes2d.edges %></p>
+      <p>angles: <%= @shapes2d.angles %></p>
+  </div>
+  <div class ="p-2">
+    <%= link_to "Write a review", new_shapes2d_review_path(@shapes2d) %>
+  </div>
+
+  <div class ="p-2">
+    <% if @shapes2d.reviews.any? %>
+    <p>
+    <strong>Reviews:</strong>
+    <ul>
+    <% @shapes2d.reviews.each do |review| %>
+      <li><%= review.comment %> </li>
+    <% end %>
+    </ul>
+    </p>
+    <% else %>
+    <p> Be the first to review...</p>
+    <% end %>
+  </div>
+</div>
+
+
+

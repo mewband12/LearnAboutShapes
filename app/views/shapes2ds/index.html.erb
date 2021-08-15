@@ -16,10 +16,16 @@
 <% @shapes2ds.each do |shape2d| %>
 <div class="cards">
   <div class="card-hello">
-    <img src= <%= shape2d.description %> alt="">
+    <img src= <%= shape2d.description %> height="200px" width ="200px"/>
     <div class="card-hello-info">
       <h3><%=shape2d.name%></h3>
-      <p><%=shape2d.formulas%> <%= shape2d.description %></p>
+      <p><%=shape2d.formulas%></p>
+      <p>sides: <%= shape2d.sides %></p>
+      <p>vertices: <%= shape2d.vertices %></p>
+      <p>edges: <%= shape2d.edges %></p>
+      <p>angles: <%= shape2d.angles %></p>
+      <%= link_to "Find out more and add to the community", shapes2d_path(shape2d.id) %>
+
     </div>
   <script>
     document.querySelector(".card-hello img")
@@ -30,7 +36,8 @@
   </div>
 <% end %>
 
-
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.1.2/TweenMax.min.js"></script>
 <script>
