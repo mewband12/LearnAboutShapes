@@ -32,26 +32,24 @@
 
 
 <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/102/three.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.1.2/TweenMax.min.js"></script>
 <script>
+setTimeout(() => {  var typed = new Typed('#typed', {stringsElement: '#typed-strings',
+backSpeed: 40,
+typeSpeed: 40,
+loopCount: 1,
+showCursor: true,
+cursorChar: "|"
+});
+
+var typed2 = new Typed('#typed2', {stringsElement: '#typed2-strings',
+backSpeed: 40,
+typeSpeed: 40,
+loop: true
+}); }, 10);
 
 
-function type(){
-  var typed = new Typed('#typed', {stringsElement: '#typed-strings',
-  backSpeed: 40,
-  typeSpeed: 40,
-  loopCount: 1,
-  showCursor: true,
-  cursorChar: "|"
-  });
 
-  var typed2 = new Typed('#typed2', {stringsElement: '#typed2-strings',
-  backSpeed: 40,
-  typeSpeed: 40,
-  loop: true
-  });
-}
-setTimeout(type,1);
+
 
 </script>
