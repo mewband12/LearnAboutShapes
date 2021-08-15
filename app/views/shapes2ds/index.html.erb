@@ -8,33 +8,38 @@
 <div id="typed2-strings">
   <p>Here you will <em> see</em> the properties of basic shapes</p>
 </div>
-<span id="typed" class = "typed"></span>
-<br>
-<span id="typed2"></span>
+
+<div class="container">
+  <span id="typed" class = "typed"></span>
+  <br>
+  <span id="typed2"></span>
+</div>
 
 
-<% @shapes2ds.each do |shape2d| %>
-<div class="cards">
-  <div class="card-hello">
-    <img src= <%= shape2d.description %> height="200px" width ="200px"/>
-    <div class="card-hello-info">
-      <h3><%=shape2d.name%></h3>
-      <p><%=shape2d.formulas%></p>
-      <p>sides: <%= shape2d.sides %></p>
-      <p>vertices: <%= shape2d.vertices %></p>
-      <p>edges: <%= shape2d.edges %></p>
-      <p>angles: <%= shape2d.angles %></p>
-      <%= link_to "Find out more and add to the community", shapes2d_path(shape2d.id) %>
+<div class="container">
+  <div class="cards">
+  <% @shapes2ds.each_with_index do |shape2d, index| %>
 
-    </div>
-  <script>
-    document.querySelector(".card-hello img")
-      .addEventListener("click", (event) => {
-        event.currentTarget.classList.toggle("tapped");
-      });
-  </script>
-  </div>
-<% end %>
+    <div class="card-hello">
+      <img src= <%= shape2d.description %> height="200px" width ="200px"/>
+      <div class="card-hello-info">
+        <h3><%=shape2d.name%></h3>
+        <p><%=shape2d.formulas%></p>
+        <p>sides: <%= shape2d.sides %></p>
+        <p>vertices: <%= shape2d.vertices %></p>
+        <p>edges: <%= shape2d.edges %></p>
+        <p>angles: <%= shape2d.angles %></p>
+        <%= link_to "Find out more and add to the community", shapes2d_path(shape2d.id) %>
+      </div>
+    <script>
+      document.querySelector(".card-hello img")
+        .addEventListener("click", (event) => {
+          event.currentTarget.classList.toggle("tapped");
+        });
+    </script>
+      </div>
+  <% end %>
+</div>
 
 <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
 <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>

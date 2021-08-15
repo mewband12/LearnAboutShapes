@@ -2,10 +2,15 @@
   font-size: 400%;
   display: flex;
   justify-content: center;
-  display: inline;
+  align-items: center;
+  display: inline-block;
+}
+#typed{
+  text-align: center;
+  margin: 10px auto;
 }
 #typed2 {
-  font-size: 300%;
+  font-size: 200%;
   display: flex;
   justify-content: center;
   display: inline;
