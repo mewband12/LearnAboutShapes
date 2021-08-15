@@ -1,0 +1,51 @@
+<nav class="navbar navbar-light bg-light">
+  <%= link_to "Home",  root_path, class: "navbar-brand"%>
+</nav>
+
+<div id="typed-strings">
+  <p>Welcome to <strong> Learn Shapes</strong> </p>
+</div>
+<div id="typed2-strings">
+  <p>Here you will <em> see</em> the properties of basic shapes</p>
+</div>
+<span id="typed" class = "typed"></span>
+<br>
+<span id="typed2"></span>
+
+
+<% @shapes2ds.each do |shape2d| %>
+<div class="cards">
+  <div class="card-hello">
+    <img src= <%= shape2d.description %> alt="">
+    <div class="card-hello-info">
+      <h3><%=shape2d.name%></h3>
+      <p><%=shape2d.formulas%> <%= shape2d.description %></p>
+    </div>
+  <script>
+    document.querySelector(".card-hello img")
+      .addEventListener("click", (event) => {
+        event.currentTarget.classList.toggle("tapped");
+      });
+  </script>
+  </div>
+<% end %>
+
+
+<script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/102/three.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.1.2/TweenMax.min.js"></script>
+<script>
+  var typed = new Typed('#typed', {stringsElement: '#typed-strings',
+  backSpeed: 40,
+  typeSpeed: 40,
+  loopCount: 1,
+  showCursor: true,
+  cursorChar: "|"
+  });
+
+  var typed2 = new Typed('#typed2', {stringsElement: '#typed2-strings',
+  backSpeed: 40,
+  typeSpeed: 40,
+  loop: true
+  });
+</script>

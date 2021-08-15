@@ -10,9 +10,30 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 0) do
+ActiveRecord::Schema.define(version: 2021_08_15_062616) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
+  create_table "reviews", force: :cascade do |t|
+    t.string "comment"
+    t.bigint "shapes2d_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["shapes2d_id"], name: "index_reviews_on_shapes2d_id"
+  end
+
+  create_table "shapes2ds", force: :cascade do |t|
+    t.string "name"
+    t.string "description"
+    t.string "formulas"
+    t.string "sides"
+    t.string "vertices"
+    t.string "edges"
+    t.string "angles"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  add_foreign_key "reviews", "shapes2ds"
 end
