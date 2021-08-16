@@ -30,11 +30,13 @@ import "bootstrap";
 
 
 import { threeJs } from '../components/three'
+import { loadDynamicBannerText } from '../components/typing';
 
 
 document.addEventListener('turbolinks:load', () => {
   // Call your functions here, e.g:
   // initSelect2();
+  loadDynamicBannerText();
   threeJs()
 });
 
